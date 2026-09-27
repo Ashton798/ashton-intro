@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>ASHTON YANG | 杨帅先</title>
+<meta name="description" content="Ashton Yang（杨帅先）| 泉州师范学院 | 篮球 / 价值投资 / AI / 机器人" />
+<meta name="theme-color" content="#050505" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+<style>
+/* ============================================================
+   DNA 混合：bleibtgleich.dev 排版 × LPT2026 点云森林特效
+   字体 Archivo Variable / 配色 黑·米白·石灰岩·锈橙 / 全直角
+   ============================================================ */
+:root{
+  --bg:#050505;
+  --fg:#f2f2ee;
+  --limestone:#cebdb2;
+  --gray:#8a8a85;
+  --rust:#ff633d;
+  --hair:rgba(255,255,255,.14);
+  --curve:1;
+  --body:'Archivo','Noto Sans SC',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:auto}
+html,body{overflow-x:clip}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:var(--rust);color:#050505}
+::-webkit-scrollbar{width:0;height:0}
+*{scrollbar-width:none}
+
+/* ---------- 预加载 ---------- */
+#preloader{
+  position:fixed;inset:0;z-index:300;background:var(--bg);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:clamp(20px,3vw,44px);
+}
+.pre-top{display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
+.pre-name{font-size:clamp(13px,1.3vw,16px);letter-spacing:.06em;text-transform:uppercase;color:var(--fg)}
+.pre-name b{color:var(--gray);font-weight:400}
+.pre-count{font-size:clamp(90px,16vw,220px);font-weight:900;line-height:.8;letter-spacing:-.04em;color:var(--fg)}
+.pre-hint{margin-top:14px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gray)}
+.pre-bar{height:1px;background:rgba(255,255,255,.12);margin-top:16px;overflow:hidden}
+.pre-bar i{display:block;height:100%;width:0;background:var(--rust)}
+
+/* ---------- 顶部导航 ---------- */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  height:64px;padding:0 clamp(20px,4vw,60px);
+  mix-blend-mode:difference;
+}
+.brand{font-size:15px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--fg)}
+.brand em{font-style:normal;color:var(--rust)}
+nav .links{display:flex;gap:clamp(18px,3vw,40px)}
+nav .links a{color:var(--fg);text-decoration:none;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;opacity:.7;transition:opacity .25s}
+nav .links a:hover{opacity:1}
+nav .links a u{text-decoration:none;background-image:linear-gradient(var(--rust),var(--rust));background-position:0 100%;background-repeat:no-repeat;background-size:100% 1px;padding-bottom:2px;transition:background-size .35s}
+nav .links a:hover u{background-size:0% 1px}
+
+/* ---------- 章节胶囊指示（LPT 同款） ---------- */
+.pill{
+  position:fixed;top:84px;right:clamp(20px,4vw,60px);z-index:200;
+  display:flex;gap:14px;align-items:baseline;
+  font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gray);
+  mix-blend-mode:difference;
+}
+.pill b{color:var(--fg);font-weight:600}
+
+/* ---------- 滚动进度 ---------- */
+#progress{position:fixed;left:clamp(20px,4vw,60px);bottom:18px;z-index:200;font-size:12px;letter-spacing:.1em;color:var(--gray);mix-blend-mode:difference}
+
+/* ---------- 光标跟随器（palominoprod 同款：混色圆 + 悬停箭头） ---------- */
+#cursorFollower{
+  position:fixed;top:0;left:0;z-index:9999;pointer-events:none;
+  width:102px;height:102px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  transform:translate(-50%,-50%) scale(.15);
+  mix-blend-mode:difference;
+  transition:transform .5s cubic-bezier(.76,0,.24,1);
+}
+#cursorFollower .cf-dot{
+  position:absolute;inset:0;border-radius:50%;background:#fff;
+}
+#cursorFollower .cf-arr{
+  position:relative;z-index:1;opacity:0;transform:scale(0);
+  transition:opacity .35s,transform .35s cubic-bezier(.76,0,.24,1);
+}
+#cursorFollower.on{transform:translate(-50%,-50%) scale(1)}
+#cursorFollower.on .cf-arr{opacity:1;transform:scale(1)}
+@media (hover:none),(pointer:coarse){#cursorFollower{display:none}}
+
+/* ---------- 布局 ---------- */
+main{position:relative;z-index:10}
+section{position:relative;padding:clamp(90px,14vh,170px) 0}
+.container{max-width:1320px;margin:0 auto;padding:0 clamp(20px,4vw,60px);width:100%}
+
+/* ---------- HERO（点云森林画布 + 弯曲标题） ---------- */
+#hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-top:64px;overflow:hidden}
+#gl{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.gl-fallback{
+  position:absolute;inset:0;z-index:0;display:none;
+  background:
+    radial-gradient(60% 50% at 70% 80%, rgba(206,189,178,.10), transparent 60%),
+    radial-gradient(40% 30% at 30% 20%, rgba(255,99,61,.06), transparent 60%),
+    #050505;
+}
+.hero-stage{position:relative;z-index:2}
+.hero-meta{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--gray);margin-bottom:clamp(28px,4.5vh,56px)}
+.hero-3d{position:relative;perspective:1000px}
+.hero-name{
+  font-size:clamp(64px,17.5vw,264px);
+  font-weight:900;line-height:.86;letter-spacing:-.03em;font-stretch:112%;
+  color:var(--fg);white-space:nowrap;
+}
+.ht-char{display:inline-block;will-change:transform}
+.hero-ghost{
+  position:absolute;left:0;top:100%;z-index:-1;
+  font-size:clamp(64px,17.5vw,264px);
+  font-weight:900;line-height:.86;letter-spacing:-.03em;font-stretch:112%;
+  color:var(--fg);opacity:.13;white-space:nowrap;
+  transform:scaleY(-1);transform-origin:top;pointer-events:none;user-select:none;
+  -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.45),transparent 72%);
+  mask-image:linear-gradient(180deg,rgba(0,0,0,.45),transparent 72%);
+}
+.hero-cn{margin-top:clamp(14px,2vh,24px);font-size:clamp(22px,3.2vw,44px);font-weight:400;letter-spacing:.42em;text-indent:.42em;color:var(--limestone)}
+.hero-desc{margin-top:clamp(32px,5vh,56px);max-width:56ch;font-size:clamp(14.5px,1.3vw,17px);line-height:1.9;color:var(--gray)}
+.hero-desc b{color:var(--fg);font-weight:500}
+.hero-desc .r{color:var(--rust)}
+
+/* ---------- 跑马灯 ---------- */
+.marquee{overflow:hidden;padding:20px 0;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);background:var(--bg)}
+.marquee-track{display:flex;width:max-content;animation:marquee 28s linear infinite;white-space:nowrap}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-track span{font-size:clamp(17px,2vw,26px);font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--fg);padding:0 20px;display:flex;align-items:center;gap:20px}
+.marquee-track .x{color:var(--rust)}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ---------- 大标题 ---------- */
+.sec-head{font-size:clamp(44px,7.5vw,110px);font-weight:900;line-height:.9;letter-spacing:-.03em;color:var(--fg)}
+.sec-head em{font-style:normal;color:var(--limestone)}
+
+/* ---------- 关于 ---------- */
+.about-grid{display:grid;grid-template-columns:minmax(280px,400px) 1fr;gap:clamp(40px,6vw,110px);margin-top:clamp(40px,6vh,72px);align-items:start}
+.photo-card{position:relative;border:1px solid var(--hair);overflow:hidden;aspect-ratio:3/4}
+.photo-card img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.15) contrast(1.02);transition:filter .5s}
+.photo-card:hover img{filter:grayscale(0)}
+.photo-cap{margin-top:12px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gray)}
+.about-text{font-size:clamp(16px,1.6vw,21px);line-height:2;color:var(--gray);font-weight:300}
+.about-text .hl{color:var(--fg);font-weight:500}
+.about-text .r{color:var(--rust);font-weight:500}
+.stats{margin-top:40px;border-top:1px solid var(--hair)}
+.stat{display:grid;grid-template-columns:minmax(0,220px) 1fr;gap:clamp(12px,2vw,32px);padding:18px 0;border-bottom:1px solid var(--hair);align-items:baseline}
+.stat .k{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray)}
+.stat .v{font-size:clamp(16px,1.4vw,19px);font-weight:600}
+.stat .v span{color:var(--gray);font-weight:400;font-size:.72em;margin-left:10px;text-transform:uppercase;letter-spacing:.08em}
+
+/* ---------- 引言（逐字入场） ---------- */
+.quote{padding:clamp(100px,16vh,200px) 0;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);background:var(--bg)}
+.quote p{font-size:clamp(30px,5.2vw,76px);font-weight:700;line-height:1.15;letter-spacing:-.02em;color:var(--limestone);max-width:22ch}
+.quote p b{color:var(--fg);font-weight:700}
+.quote .cw{display:inline-block;overflow:hidden;vertical-align:top}
+.quote .cw i{display:inline-block;font-style:normal;will-change:transform}
+.quote .who{margin-top:28px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gray)}
+
+/* ---------- 热爱（列表行） ---------- */
+.rows{margin-top:clamp(40px,6vh,72px);border-top:1px solid var(--hair)}
+.row{display:grid;grid-template-columns:minmax(0,60px) minmax(0,1.1fr) minmax(0,1.4fr) minmax(0,120px);gap:clamp(12px,2vw,36px);align-items:start;padding:clamp(26px,4vh,44px) 0;border-bottom:1px solid var(--hair);transition:background .3s}
+.row:hover{background:rgba(255,255,255,.02)}
+.row .n{font-size:13px;color:var(--gray);padding-top:6px}
+.row h3{font-size:clamp(28px,3.6vw,52px);font-weight:900;line-height:.95;letter-spacing:-.02em}
+.row h3 a{color:var(--fg);text-decoration:none;transition:color .25s}
+.row:hover h3 a{color:var(--rust)}
+.row .d{font-size:14.5px;line-height:1.85;color:var(--gray)}
+.row .d .idol{color:var(--fg);font-weight:500}
+.row .d .r{color:var(--rust)}
+.row .t{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);padding-top:8px;text-align:right;line-height:2}
+
+/* ---------- 纽约 ---------- */
+#ny{padding-top:0;background:var(--bg)}
+.ny-wrap{position:relative;min-height:clamp(480px,80vh,720px);display:flex;align-items:flex-end;border:1px solid var(--hair);overflow:hidden}
+.ny-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.35) contrast(1.05);will-change:transform}
+.ny-wrap::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(5,5,5,.15) 0%,rgba(5,5,5,.35) 55%,rgba(5,5,5,.97) 100%)}
+.ny-content{position:relative;z-index:2;padding:clamp(36px,6vw,84px);width:100%}
+.ny-content .meta{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--limestone);margin-bottom:20px}
+.ny-content h2{font-size:clamp(52px,9vw,130px);font-weight:900;line-height:.88;letter-spacing:-.03em}
+.ny-content h2 i{font-style:normal;color:var(--rust)}
+.ny-content p{max-width:52ch;color:var(--limestone);line-height:1.9;margin-top:22px;font-size:clamp(14px,1.2vw,16px)}
+.ny-content p b{color:#fff;font-weight:500}
+.ny-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--hair);border:1px solid var(--hair);margin-top:40px}
+.ny-facts .f{background:var(--bg);padding:18px 20px}
+.ny-facts .f b{display:block;font-size:clamp(18px,1.8vw,26px);font-weight:900;color:var(--fg)}
+.ny-facts .f span{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gray)}
+
+/* ---------- 照片（左右交错竖列，palominoprod 同款） ---------- */
+.p-list{display:flex;flex-direction:column;gap:clamp(70px,12vh,140px);margin-top:clamp(40px,6vh,72px)}
+.p-item{width:min(100%,560px)}
+.p-item.left{margin-right:auto}
+.p-item.right{margin-left:auto}
+.p-item .p-img{position:relative;overflow:hidden;border:1px solid var(--hair)}
+.p-item:nth-child(odd) .p-img{aspect-ratio:3/4}
+.p-item:nth-child(even) .p-img{aspect-ratio:4/5}
+.p-item .p-img img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.25);transition:filter .5s,transform .8s}
+.p-item:hover .p-img img{filter:grayscale(0);transform:scale(1.04)}
+.p-item .p-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 62%,rgba(5,5,5,.4));pointer-events:none}
+.p-item h3{font-size:clamp(24px,3vw,40px);font-weight:900;line-height:1;letter-spacing:-.02em;margin-top:20px;transition:color .3s}
+.p-item:hover h3{color:var(--rust)}
+.p-item .p-note{margin-top:8px;font-size:14px;line-height:1.7;color:var(--gray);max-width:42ch}
+.p-item .p-cap{margin-top:10px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim,#8a8a85)}
+
+/* ---------- 页脚 ---------- */
+footer{border-top:1px solid var(--hair);padding:clamp(90px,14vh,170px) 0 clamp(40px,6vh,60px);background:var(--bg)}
+.foot-cta{font-size:clamp(40px,8vw,120px);font-weight:900;line-height:.95;letter-spacing:-.03em}
+/* 联系方式大字列表（可点击复制） */
+.contact-list{margin-top:clamp(40px,6vh,64px);border-top:1px solid var(--hair)}
+.c-row{
+  display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;
+  padding:24px 4px;border-bottom:1px solid var(--hair);cursor:pointer;
+  transition:padding-left .3s,background .3s;
+}
+.c-row:hover{padding-left:14px;background:rgba(255,255,255,.02)}
+.c-row .ck{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gray)}
+.c-row .cv{font-size:clamp(20px,2.8vw,36px);font-weight:900;letter-spacing:-.01em;display:flex;align-items:baseline;gap:14px}
+.c-row .cv small{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);font-weight:400}
+.c-row:hover .cv{color:var(--rust)}
+.c-row .cv .copied{color:var(--rust)}
+.foot-bottom{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:clamp(70px,10vh,120px);padding-top:24px;border-top:1px solid var(--hair);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gray)}
+
+/* ---------- 入场（GSAP） ---------- */
+[data-reveal]{opacity:0}
+
+/* ---------- 响应式 ---------- */
+@media (max-width:960px){
+  .about-grid{grid-template-columns:1fr}
+  .photo-card{max-width:340px}
+  nav .links{display:none}
+  .row{grid-template-columns:minmax(0,44px) 1fr;grid-template-areas:"n t" "d d" "m m"}
+  .row .n{grid-area:n}
+  .row h3{grid-area:t}
+  .row .d{grid-area:d}
+  .row .t{grid-area:m;text-align:left;padding-top:0}
+  .ny-facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:560px){
+  .stat{grid-template-columns:1fr;gap:4px}
+  .p-item{width:100%}
+  .p-item.left,.p-item.right{margin:0}
+}
+@media (prefers-reduced-motion: reduce){
+  .marquee-track{animation:none}
+  [data-reveal]{opacity:1}
+  #preloader{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- 预加载 -->
+<div id="preloader">
+  <div class="pre-top">
+    <div class="pre-name">ASHTON YANG <b>正在装载粒子森林</b></div>
+    <div class="pre-count" id="preCount">000</div>
+  </div>
+  <div class="pre-hint">POINT CLOUD / CYLINDER TITLE / LENIS</div>
+  <div class="pre-bar"><i id="preBar"></i></div>
+</div>
+
+<div class="pill"><b id="spName">HERO</b><span id="pgCur">01 / 06</span></div>
+<div id="progress">0%</div>
+
+<!-- 光标跟随器（palominoprod 同款） -->
+<div id="cursorFollower" aria-hidden="true">
+  <div class="cf-dot"></div>
+  <svg class="cf-arr" width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M2.333 5.25h2.333L7.583 2.917v8.166L4.666 8.75H2.333V5.25Z" fill="#000"/>
+    <path d="M9.917 4.667a3.75 3.75 0 0 1 0 5.5" stroke="#000" stroke-width="1.2" stroke-linecap="round"/>
+  </svg>
+</div>
+
+<nav>
+  <a class="brand" href="#hero">ASHTON<em>.</em>YANG</a>
+  <div class="links">
+    <a href="#about"><u>关于</u></a>
+    <a href="#interests"><u>热爱</u></a>
+    <a href="#ny"><u>纽约</u></a>
+    <a href="#photos"><u>照片</u></a>
+    <a href="#contact"><u>联系</u></a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HERO：点云森林 -->
+  <section id="hero">
+    <canvas id="gl"></canvas>
+    <div class="gl-fallback"></div>
+    <div class="container hero-stage" id="heroStage">
+      <div class="hero-meta">
+        <span>泉州师范学院 · QUANZHOU, CHINA</span>
+        <span>PORTFOLIO '26</span>
+      </div>
+      <div class="hero-3d" id="hero3d">
+        <h1 class="hero-name ht-curve" id="heroName" aria-label="ASHTON">ASHTON</h1>
+        <div class="hero-ghost ht-curve" id="heroGhost" aria-hidden="true">ASHTON</div>
+      </div>
+      <div class="hero-cn">杨 帅 先</div>
+      <p class="hero-desc">
+        <b>社会体育管理与指导</b> 专业在读。
+        篮球手、价值投资者、AI Builder。
+        把身体练在路上，把头脑练在市场上，把想象力交给 <span class="r">AI 与机器人</span>。
+      </p>
+    </div>
+  </section>
+
+  <!-- 跑马灯 -->
+  <div class="marquee">
+    <div class="marquee-track" id="mt">
+      <span>BASKETBALL <i class="x">✦</i> VALUE INVESTING <i class="x">✦</i> AI <i class="x">✦</i> ROBOTICS <i class="x">✦</i> NEW YORK <i class="x">✦</i> LEBRON <i class="x">✦</i> BUFFETT <i class="x">✦</i></span>
+    </div>
+  </div>
+
+  <!-- 关于 -->
+  <section id="about">
+    <div class="container">
+      <h2 class="sec-head" data-reveal>关于 <em>ABOUT</em></h2>
+      <div class="about-grid">
+        <div data-reveal>
+          <div class="photo-card">
+            <img src="img/me5.jpg" alt="杨帅先 Ashton 的证件照">
+          </div>
+          <div class="photo-cap">ASHTON YANG · 泉州 2025</div>
+        </div>
+        <div>
+          <p class="about-text" data-reveal>
+            我叫 <span class="hl">杨帅先</span>，英文名 <span class="hl">Ashton</span>，就读于
+            <span class="hl">泉州师范学院</span>，主修 <span class="r">社会体育管理与指导</span>。
+            <br/><br/>
+            体育教会我<span class="r">坚持与自律</span>，投资教会我<span class="r">耐心与独立</span>，
+            AI 与机器人则让我看到未来正在被亲手搭建。
+            我相信好的身体是一切长期主义的前提，所以我把运动当作习惯，把学习当作生活。
+          </p>
+          <div class="stats" data-reveal>
+            <div class="stat"><span class="k">学校</span><span class="v">泉州师范学院 <span>Quanzhou Normal Univ.</span></span></div>
+            <div class="stat"><span class="k">专业</span><span class="v">社会体育管理与指导 <span>Social Sports Mgmt</span></span></div>
+            <div class="stat"><span class="k">坐标</span><span class="v">中国 · 福建泉州 <span>Fujian, China</span></span></div>
+            <div class="stat"><span class="k">梦想城市</span><span class="v">纽约 <span>New York City</span></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 引言 -->
+  <section class="quote">
+    <div class="container">
+      <p>一切长期主义，<br/>最初都只是<br/><b>一次坚持</b>。</p>
+      <div class="who" data-reveal>ASHTON YANG · 杨帅先</div>
+    </div>
+  </section>
+
+  <!-- 热爱 -->
+  <section id="interests">
+    <div class="container">
+      <h2 class="sec-head" data-reveal>热爱 <em>INTERESTS</em></h2>
+      <div class="rows">
+        <div class="row">
+          <div class="n">01</div>
+          <h3><a href="#photos">篮球</a></h3>
+          <p class="d">从小学第一次运球就爱上这项运动。偶像是 <span class="idol">LeBron James</span>：二十年如一日的自律、全能的统治力、关键时刻的担当。我也坚持跑步与力量训练。<span class="r">天赋决定起点，努力决定上限。</span></p>
+          <div class="t">BASKETBALL<br/>IDOL: LEBRON</div>
+        </div>
+        <div class="row">
+          <div class="n">02</div>
+          <h3><a href="#ny">价值投资</a></h3>
+          <p class="d">向 <span class="idol">Warren Buffett</span> 学习：买股票就是买公司，能力圈内行动，时间是复利最好的朋友。我研究财报、阅读年报、关注长期确定性。<span class="r">别人贪婪时我恐惧，别人恐惧时我贪婪。</span></p>
+          <div class="t">VALUE<br/>IDOL: BUFFETT</div>
+        </div>
+        <div class="row">
+          <div class="n">03</div>
+          <h3><a href="#contact">AI</a></h3>
+          <p class="d">AI 是这个时代最大的杠杆。我用大模型写代码、做产品、自动化重复劳动，一个人就是一支全栈团队。未来十年，会用 AI 的人会取代不会用 AI 的人，<span class="r">我选择站在杠杆这一侧。</span></p>
+          <div class="t">LEVERAGE<br/>FULL-STACK</div>
+        </div>
+        <div class="row">
+          <div class="n">04</div>
+          <h3><a href="#ny">机器人</a></h3>
+          <p class="d">人形机器人正在重新定义劳动力。机电、感知、AI 决策，这个交叉领域是下一个十年的主战场。<span class="r">当机器学会走路，人类要学会驾驭机器。</span></p>
+          <div class="t">ROBOTICS<br/>IDOL: MUSK</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 纽约 -->
+  <section id="ny">
+    <div class="container">
+      <h2 class="sec-head" data-reveal>纽约 <em>NYC</em></h2>
+      <div class="ny-wrap" data-reveal>
+        <img class="ny-photo" src="img/manhattan.jpg" alt="曼哈顿天际线，纽约">
+        <div class="ny-content">
+          <div class="meta">TARGET DESTINATION · NEW YORK CITY</div>
+          <h2>I <i>♥</i> NEW YORK</h2>
+          <p>如果有一座城市能同时容纳体育的狂热、资本的脉搏、AI 的野心和机器人的轰鸣，那一定是纽约。
+          麦迪逊广场花园的呐喊、华尔街的钟声、布鲁克林大桥的落日。<b>总有一天，我会站在曼哈顿的天际线下。</b></p>
+          <div class="ny-facts">
+            <div class="f"><b>5</b><span>BOROUGHS 五大区</span></div>
+            <div class="f"><b>MSG</b><span>麦迪逊广场花园</span></div>
+            <div class="f"><b>NYSE</b><span>世界金融中心</span></div>
+            <div class="f"><b>AI</b><span>科技新浪潮</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 照片：左右交错竖列 -->
+  <section id="photos">
+    <div class="container">
+      <h2 class="sec-head" data-reveal>照片 <em>PHOTOS</em></h2>
+      <div class="p-list">
+        <article class="p-item left">
+          <div class="p-img"><img src="img/me1.jpg" alt="Ashton 的照片"></div>
+          <h3>泉州 · 2025</h3>
+          <p class="p-note">在泉州师范学院的日子，球场、课堂和宿舍楼之间的日常。</p>
+          <div class="p-cap">PHOTO 01</div>
+        </article>
+        <article class="p-item right">
+          <div class="p-img"><img src="img/me2.jpg" alt="Ashton 的照片"></div>
+          <h3>日常</h3>
+          <p class="p-note">训练、上课、生活的碎片，记录当下最真实的状态。</p>
+          <div class="p-cap">PHOTO 02</div>
+        </article>
+        <article class="p-item left">
+          <div class="p-img"><img src="img/me3.jpg" alt="Ashton 的照片"></div>
+          <h3>状态</h3>
+          <p class="p-note">保持热爱的方式，是把每一天都过成想要的样子。</p>
+          <div class="p-cap">PHOTO 03</div>
+        </article>
+        <article class="p-item right">
+          <div class="p-img"><img src="img/me4.jpg" alt="Ashton 的照片"></div>
+          <h3>生活记录</h3>
+          <p class="p-note">一些值得记住的瞬间，留给未来的自己。</p>
+          <div class="p-cap">PHOTO 04</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系 -->
+  <footer id="contact">
+    <div class="container">
+      <h2 class="sec-head" data-reveal>联系 <em>CONTACT</em></h2>
+      <div class="foot-cta" data-reveal>
+        想和我聊聊<br/>
+        篮球、投资或 AI？
+      </div>
+      <div class="contact-list" data-reveal>
+        <div class="c-row" data-copy="Ashton-798">
+          <span class="ck">微信 WECHAT</span>
+          <span class="cv">Ashton-798 <small class="hint">点击复制</small></span>
+        </div>
+        <div class="c-row" data-copy="18560167655">
+          <span class="ck">电话 PHONE</span>
+          <span class="cv">185 6016 7655 <small class="hint">点击复制</small></span>
+        </div>
+        <div class="c-row" data-copy="3110564775">
+          <span class="ck">QQ</span>
+          <span class="cv">3110564775 <small class="hint">点击复制</small></span>
+        </div>
+      </div>
+      <div class="foot-bottom" data-reveal>
+        <span>© '26 ASHTON YANG · 杨帅先</span>
+        <span>泉州 → 纽约</span>
+        <span>MADE W/ SWEAT</span>
+      </div>
+    </div>
+  </footer>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.3.21/dist/lenis.min.js"></script>
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js"}}
+</script>
+<script type="module">
+/* ============================================================
+   特效① 点云森林（LPT2026 同款：地面+树+体积雾，相机环绕，
+   鼠标流体推挤，滚动钻进森林）调色板换成页面石灰岩/锈橙
+   ============================================================ */
+import * as THREE from 'three';
+
+const canvas = document.getElementById('gl');
+const fallback = document.querySelector('.gl-fallback');
+
+function detectTier() {
+  const coarse = matchMedia('(pointer: coarse)').matches || innerWidth < 820;
+  const cores = navigator.hardwareConcurrency || 4;
+  const mem = navigator.deviceMemory || 8;
+  if (coarse) return 1;
+  if (cores <= 4 || mem <= 4) return 2;
+  return 3;
+}
+const TIER = detectTier();
+const BUDGET = {
+  1: { ground: 7000, trees: 6000, fog: 220, dpr: 1 },
+  2: { ground: 18000, trees: 15000, fog: 400, dpr: 1.5 },
+  3: { ground: 52000, trees: 48000, fog: 800, dpr: 1.75 }
+}[TIER];
+
+function showFallback() {
+  canvas.style.display = 'none';
+  fallback.style.display = 'block';
+}
+
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+try {
+  /* 确定性伪随机 + 值噪声（固定种子可复现） */
+  let seed = 20260810;
+  const rand = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const hash = (x, y) => {
+    let n = (x * 374761393 + y * 668265263) | 0;
+    n = Math.imul(n ^ (n >>> 13), 1274126177);
+    return ((n ^ (n >>> 16)) >>> 0) / 4294967295;
+  };
+  const fade = t => t * t * (3 - 2 * t);
+  function vnoise(x, y) {
+    const ix = Math.floor(x), iy = Math.floor(y);
+    const fx = x - ix, fy = y - iy;
+    const a = hash(ix, iy), b = hash(ix + 1, iy);
+    const c = hash(ix, iy + 1), d = hash(ix + 1, iy + 1);
+    const u = fade(fx), v = fade(fy);
+    return a + (b - a) * u + (c - a) * v + (a - b - c + d) * u * v;
+  }
+  function fbm(x, y) {
+    let s = 0, amp = 1, freq = 1, norm = 0;
+    for (let i = 0; i < 4; i++) {
+      s += amp * vnoise(x * freq, y * freq);
+      norm += amp; amp *= 0.5; freq *= 2.1;
+    }
+    return s / norm;
+  }
+  const lerp = (a, b, t) => a + (b - a) * t;
+  const mixC = (a, b, t) => [lerp(a[0], b[0], t), lerp(a[1], b[1], t), lerp(a[2], b[2], t)];
+
+  /* 调色板：页面 DNA 化（石灰岩森林 + 锈橙花 + 暖雾） */
+  const C = {
+    groundA: [0.10, 0.10, 0.09], groundB: [0.30, 0.28, 0.25],
+    trunk:   [0.13, 0.12, 0.11],
+    canopyA: [0.42, 0.38, 0.34], canopyB: [0.78, 0.71, 0.66],
+    blossom: [1.00, 0.39, 0.24],
+    ice:     [0.92, 0.90, 0.87]
+  };
+  const FOG_COLORS = [[0.85, 0.80, 0.76], [0.75, 0.68, 0.63], [0.95, 0.93, 0.90], [0.90, 0.62, 0.50]];
+
+  function buildGround(count, out) {
+    const step = Math.sqrt((110 * 85) / count);
+    for (let x = -55; x < 55; x += step) {
+      for (let z = -55; z < 30; z += step) {
+        const jx = x + (rand() - 0.5) * step, jz = z + (rand() - 0.5) * step;
+        const n = fbm(jx * 0.045 + 7.3, jz * 0.045 + 2.1);
+        const y = n * 4.2 - 0.9;
+        let col = mixC(C.groundA, C.groundB, Math.min(1, n * 1.5));
+        const r = rand();
+        if (r < 0.015) col = C.blossom;
+        else if (r < 0.023) col = C.ice;
+        out.pos.push(jx, y, jz);
+        out.col.push(...col);
+        out.size.push(0.9 + rand() * 0.7);
+        out.seed.push(rand());
+      }
+    }
+  }
+
+  function buildTrees(count, out) {
+    const perTree = Math.floor(count / 16);
+    for (let t = 0; t < 16; t++) {
+      const side = t % 2 === 0 ? -1 : 1;
+      const tx = side * (4.5 + rand() * 34);
+      const tz = -3 - rand() * 45;
+      const gy = fbm(tx * 0.045 + 7.3, tz * 0.045 + 2.1) * 4.2 - 0.9;
+      const H = 6 + rand() * 5.5;
+      const lean = (rand() - 0.5) * 2.2;
+      const trunkN = Math.floor(perTree * 0.35);
+      for (let i = 0; i < trunkN; i++) {
+        const h = rand() * H;
+        const ang = rand() * Math.PI * 2;
+        const rad = 0.28 * (1 - h / H * 0.5) * (0.6 + rand() * 0.8);
+        const wob = Math.sin(h * 0.9 + t) * 0.35;
+        out.pos.push(tx + Math.cos(ang) * rad + wob, gy + h, tz + Math.sin(ang) * rad);
+        out.col.push(...mixC(C.trunk, C.canopyA, h / H * 0.25));
+        out.size.push(1.1 + rand() * 0.6);
+        out.seed.push(rand());
+      }
+      const canopyN = perTree - trunkN;
+      const cr = 2.0 + rand() * 1.6;
+      for (let i = 0; i < canopyN; i++) {
+        const th = rand() * Math.PI * 2, ph = Math.acos(2 * rand() - 1);
+        const rr = Math.cbrt(rand());
+        const cx = tx + lean + Math.sin(ph) * Math.cos(th) * cr * 1.25 * rr;
+        const cy = gy + H + Math.cos(ph) * cr * 0.75 * rr;
+        const cz = tz + Math.sin(ph) * Math.sin(th) * cr * 1.25 * rr;
+        const n = fbm(cx * 0.3 + t, cz * 0.3);
+        let col = mixC(C.canopyA, C.canopyB, n);
+        if (rand() < 0.06) col = C.blossom;
+        out.pos.push(cx, cy, cz);
+        out.col.push(...col);
+        out.size.push(1.2 + rand() * 0.9);
+        out.seed.push(rand());
+      }
+    }
+  }
+
+  const bag = { pos: [], col: [], size: [], seed: [] };
+  buildGround(BUDGET.ground, bag);
+  buildTrees(BUDGET.trees, bag);
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(bag.pos, 3));
+  geo.setAttribute('aColor',   new THREE.Float32BufferAttribute(bag.col, 3));
+  geo.setAttribute('aSize',    new THREE.Float32BufferAttribute(bag.size, 1));
+  geo.setAttribute('aSeed',    new THREE.Float32BufferAttribute(bag.seed, 1));
+
+  const uniforms = {
+    uTime:  { value: 0 },
+    uMouse: { value: new THREE.Vector2(999, 999) },
+    uDpr:   { value: 1 },
+    uSway:  { value: reducedMotion ? 0.25 : 1 }
+  };
+  const pointMat = new THREE.ShaderMaterial({
+    uniforms, transparent: true, depthWrite: false,
+    vertexShader: `
+      uniform float uTime; uniform vec2 uMouse; uniform float uDpr; uniform float uSway;
+      attribute vec3 aColor; attribute float aSize; attribute float aSeed;
+      varying vec3 vColor;
+      void main() {
+        vec3 p = position;
+        float sway = sin(uTime * 0.6 + aSeed * 6.2831 + p.x * 0.12)
+                   * (0.03 + max(p.y, 0.0) * 0.025) * uSway;
+        p.x += sway; p.z += sway * 0.6;
+        vec2 d = p.xz - uMouse;
+        float dist = length(d) + 0.0001;
+        float force = smoothstep(7.0, 0.0, dist);
+        p.xz += (d / dist) * force * 2.2;
+        p.y  += force * 1.4;
+        vec4 mv = modelViewMatrix * vec4(p, 1.0);
+        gl_Position = projectionMatrix * mv;
+        float tw = 0.72 + 0.28 * sin(uTime * 1.4 + aSeed * 40.0);
+        vColor = aColor * tw;
+        gl_PointSize = aSize * uDpr * (80.0 / -mv.z);
+      }`,
+    fragmentShader: `
+      varying vec3 vColor;
+      void main() {
+        vec2 uv = gl_PointCoord - 0.5;
+        float r = length(uv);
+        if (r > 0.5) discard;
+        float a = smoothstep(0.5, 0.12, r);
+        gl_FragColor = vec4(vColor, a * 0.92);
+      }`
+  });
+
+  /* 体积雾粒子（加法混合） */
+  const fogBag = { pos: [], col: [], size: [], seed: [], alpha: [] };
+  for (let i = 0; i < BUDGET.fog; i++) {
+    fogBag.pos.push((rand() - 0.5) * 100, 0.5 + rand() * 15, 24 - rand() * 74);
+    fogBag.col.push(...FOG_COLORS[Math.floor(rand() * FOG_COLORS.length)]);
+    fogBag.size.push(8 + rand() * 18);
+    fogBag.seed.push(rand());
+    fogBag.alpha.push(0.04 + rand() * 0.08);
+  }
+  const fogGeo = new THREE.BufferGeometry();
+  fogGeo.setAttribute('position', new THREE.Float32BufferAttribute(fogBag.pos, 3));
+  fogGeo.setAttribute('aColor',   new THREE.Float32BufferAttribute(fogBag.col, 3));
+  fogGeo.setAttribute('aSize',    new THREE.Float32BufferAttribute(fogBag.size, 1));
+  fogGeo.setAttribute('aSeed',    new THREE.Float32BufferAttribute(fogBag.seed, 1));
+  fogGeo.setAttribute('aAlpha',   new THREE.Float32BufferAttribute(fogBag.alpha, 1));
+  const fogMat = new THREE.ShaderMaterial({
+    uniforms, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
+    vertexShader: `
+      uniform float uTime; uniform float uDpr;
+      attribute vec3 aColor; attribute float aSize; attribute float aSeed; attribute float aAlpha;
+      varying vec4 vCol;
+      void main() {
+        vec3 p = position;
+        p.x += sin(uTime * 0.05 + aSeed * 6.2831) * 3.5;
+        p.y += sin(uTime * 0.08 + aSeed * 9.0) * 0.8;
+        vec4 mv = modelViewMatrix * vec4(p, 1.0);
+        gl_Position = projectionMatrix * mv;
+        vCol = vec4(aColor, aAlpha);
+        gl_PointSize = aSize * uDpr * (120.0 / -mv.z);
+      }`,
+    fragmentShader: `
+      varying vec4 vCol;
+      void main() {
+        float r = length(gl_PointCoord - 0.5);
+        float a = smoothstep(0.5, 0.0, r);
+        gl_FragColor = vec4(vCol.rgb, vCol.a * a * a);
+      }`
+  });
+
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false, powerPreference: 'high-performance' });
+  renderer.setClearColor(0x000000, 0);
+  const dpr = Math.min(devicePixelRatio || 1, BUDGET.dpr);
+  renderer.setPixelRatio(dpr);
+  uniforms.uDpr.value = dpr;
+
+  const scene = new THREE.Scene();
+  scene.add(new THREE.Points(geo, pointMat));
+  scene.add(new THREE.Points(fogGeo, fogMat));
+  const camera = new THREE.PerspectiveCamera(55, 1, 0.1, 200);
+
+  function resize() {
+    const w = canvas.clientWidth || innerWidth;
+    const h = canvas.clientHeight || innerHeight;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+  }
+  resize();
+  addEventListener('resize', resize);
+
+  const mouse = { x: 0, y: 0, sx: 0, sy: 0 };
+  addEventListener('mousemove', e => {
+    mouse.x = (e.clientX / innerWidth) * 2 - 1;
+    mouse.y = (e.clientY / innerHeight) * 2 - 1;
+  }, { passive: true });
+
+  /* 滚动进度 → 相机钻进森林 */
+  let scrollP = 0;
+  window.ScrollTrigger.create({
+    trigger: '#hero', start: 'top top', end: 'bottom top',
+    onUpdate: self => { scrollP = self.progress; }
+  });
+
+  /* 首屏离开视口就停渲染 */
+  let heroVisible = true;
+  new IntersectionObserver(([e]) => { heroVisible = e.isIntersecting; })
+    .observe(document.getElementById('hero'));
+
+  canvas.addEventListener('webglcontextlost', e => { e.preventDefault(); showFallback(); });
+
+  const ROT_SPEED = reducedMotion ? 0 : (Math.PI * 2 / 24);
+  window.gsap.ticker.add(() => {
+    if (!heroVisible || document.hidden) return;
+    const t = performance.now() / 1000;
+    uniforms.uTime.value = reducedMotion ? t * 0.3 : t;
+    mouse.sx += (mouse.x - mouse.sx) * 0.05;
+    mouse.sy += (mouse.y - mouse.sy) * 0.05;
+    uniforms.uMouse.value.set(mouse.sx * 32, 12 - mouse.sy * 22);
+    const az = t * ROT_SPEED;
+    window.__heroAz = az;
+    const r = 26 - scrollP * 15;
+    camera.position.set(
+      Math.sin(az) * r + Math.sin(t * 0.06) * 1.4 + mouse.sx * 2.0,
+      6.2 - scrollP * 2.6 - mouse.sy * 0.8,
+      Math.cos(az) * r
+    );
+    camera.lookAt(0, 4.2 - scrollP * 1.6, 0);
+    renderer.render(scene, camera);
+  });
+} catch (err) {
+  console.warn('WebGL 初始化失败，降级静态背景:', err);
+  showFallback();
+}
+
+/* ============================================================
+   特效② 标题圆柱弯曲 + 镜像重影随相机方位角呼吸（LPT 同款）
+   ============================================================ */
+(function curveTitle() {
+  function split(el) {
+    const chars = [...el.textContent];
+    el.textContent = '';
+    const mid = (chars.length - 1) / 2;
+    chars.forEach((ch, i) => {
+      const s = document.createElement('span');
+      s.className = 'ht-char';
+      s.textContent = ch;
+      s.style.transform = `rotateY(calc(${(i - mid) * 8}deg * var(--curve, 1)))`;
+      el.appendChild(s);
+    });
+  }
+  split(document.getElementById('heroName'));
+  split(document.getElementById('heroGhost'));
+})();
+
+(function heroTitle3D() {
+  const stage3d = document.getElementById('hero3d');
+  if (!stage3d) return;
+  window.gsap.ticker.add(() => {
+    const az = window.__heroAz || 0;
+    const swing = Math.sin(az);
+    stage3d.style.setProperty('--curve', (1 + swing * 0.35).toFixed(3));
+    stage3d.style.transform = `rotateY(${(swing * 9).toFixed(2)}deg) translateX(${(swing * 16).toFixed(1)}px)`;
+  });
+})();
+</script>
+<script>
+/* ============================================================
+   主逻辑：Lenis + 预加载 + 滚动动效编排
+   ============================================================ */
+gsap.registerPlugin(ScrollTrigger);
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isTouch = matchMedia('(hover: none)').matches;
+
+/* ---------- 预加载：计数 + 进度条 → 幕布上滑 → 名字逐字入场 ---------- */
+(function(){
+  const pre = document.getElementById('preloader');
+  const countEl = document.getElementById('preCount');
+  const bar = document.getElementById('preBar');
+  if (reduceMotion){ pre.style.display = 'none'; document.querySelectorAll('[data-reveal]').forEach(el => el.style.opacity = 1); return; }
+  const tl = gsap.timeline();
+  const counter = { v: 0 };
+  tl.to(counter, {
+    v: 100, duration: 1.7, ease: 'power2.inOut',
+    onUpdate: () => {
+      countEl.textContent = String(Math.round(counter.v)).padStart(3, '0');
+      bar.style.width = counter.v + '%';
+    }
+  })
+  .to(pre, { yPercent: -100, duration: .9, ease: 'power4.inOut' }, '+=.15')
+  .set(pre, { display: 'none' })
+  .from('.ht-char', { yPercent: 115, duration: 1.1, stagger: .05, ease: 'power4.out' }, '-=.35')
+  .from('.hero-cn', { y: 30, opacity: 0, duration: .8, ease: 'power3.out' }, '-=.5')
+  .from('.hero-desc', { y: 24, opacity: 0, duration: .8, ease: 'power3.out' }, '-=.45');
+})();
+
+/* ---------- Lenis 平滑滚动 ---------- */
+(function(){
+  if (reduceMotion) return;
+  const lenis = new Lenis({ lerp: .09, wheelMultiplier: .9 });
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(t => lenis.raf(t * 1000));
+  gsap.ticker.lagSmoothing(0);
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (id.length < 2) return;
+      const el = document.querySelector(id);
+      if (!el) return;
+      e.preventDefault();
+      lenis.scrollTo(el, { offset: -60 });
+    });
+  });
+})();
+
+/* ---------- 基础入场（fade-up） ---------- */
+document.querySelectorAll('[data-reveal]').forEach(el => {
+  if (reduceMotion){ el.style.opacity = 1; return; }
+  gsap.fromTo(el,
+    { y: 42, opacity: 0 },
+    {
+      y: 0, opacity: 1, duration: 1, ease: 'power3.out',
+      scrollTrigger: {
+        trigger: el,
+        start: el.classList.contains('foot-bottom') ? 'top 98%' : 'top 92%',
+        once: true
+      }
+    }
+  );
+});
+
+/* ---------- 特效③ 滚动动感：各板块 scrub 视差 + 序列入场 ---------- */
+/* 首屏滚出：标题组缩放 + 上浮 + 渐隐 */
+gsap.to('#heroStage', {
+  scale: 1.14, yPercent: 14, opacity: 0, ease: 'none',
+  scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true }
+});
+
+/* 关于：肖像内视差 */
+gsap.fromTo('.photo-card img',
+  { yPercent: -8 }, { yPercent: 8, ease: 'none',
+  scrollTrigger: { trigger: '.about-grid', start: 'top bottom', end: 'bottom top', scrub: true } });
+
+/* 引言：逐字翻起 */
+(function(){
+  if (reduceMotion) return;
+  const p = document.querySelector('.quote p');
+  const frag = document.createDocumentFragment();
+  [...p.childNodes].forEach(node => {
+    if (node.nodeType === 3){
+      [...node.textContent].forEach(ch => {
+        if (ch === ' '){ frag.appendChild(document.createTextNode(' ')); return; }
+        const w = document.createElement('span'); w.className = 'cw';
+        const i = document.createElement('i'); i.textContent = ch;
+        w.appendChild(i); frag.appendChild(w);
+      });
+    } else frag.appendChild(node);
+  });
+  p.replaceChildren(frag);
+  gsap.from('.quote .cw i', {
+    yPercent: 110, duration: .8, stagger: .025, ease: 'power4.out',
+    scrollTrigger: { trigger: '.quote', start: 'top 75%', once: true }
+  });
+})();
+
+/* 热爱：行序列入场 */
+gsap.from('.row', {
+  y: 56, opacity: 0, duration: .9, stagger: .1, ease: 'power3.out',
+  scrollTrigger: { trigger: '.rows', start: 'top 80%', once: true }
+});
+
+/* 纽约：照片视差 + 放大 */
+gsap.fromTo('.ny-photo',
+  { yPercent: -10, scale: 1.16 }, { yPercent: 10, scale: 1.16, ease: 'none',
+  scrollTrigger: { trigger: '.ny-wrap', start: 'top bottom', end: 'bottom top', scrub: true } });
+
+/* 照片：向下滚动时左右交错一张一张冒出来（每张间隔 260px，严格逐个弹出） */
+gsap.utils.toArray('.p-item').forEach((p, i) => {
+  if (reduceMotion) return;
+  gsap.fromTo(p,
+    { clipPath: 'inset(0 0 100% 0)', y: 60, opacity: 0 },
+    {
+      clipPath: 'inset(0 0 0% 0)', y: 0, opacity: 1,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.p-list',
+        start: 'top+=' + (i * 260) + ' bottom',
+        end: 'top+=' + (i * 260 + 360) + ' bottom',
+        scrub: true
+      }
+    }
+  );
+});
+
+/* 信息行序列 */
+gsap.from('.stat', {
+  y: 24, opacity: 0, duration: .7, stagger: .08, ease: 'power3.out',
+  scrollTrigger: { trigger: '.stats', start: 'top 85%', once: true }
+});
+
+/* ---------- 章节胶囊指示（LPT 同款） ---------- */
+(function(){
+  const name = document.getElementById('spName');
+  const cur = document.getElementById('pgCur');
+  const SECTIONS = [
+    { id: 'hero', name: 'HERO' }, { id: 'about', name: 'ABOUT' },
+    { id: 'interests', name: 'INTERESTS' }, { id: 'ny', name: 'NYC' },
+    { id: 'photos', name: 'PHOTOS' }, { id: 'contact', name: 'CONTACT' }
+  ];
+  SECTIONS.forEach((s, i) => {
+    ScrollTrigger.create({
+      trigger: '#' + s.id, start: 'top center', end: 'bottom center',
+      onEnter: () => { name.textContent = s.name; cur.textContent = String(i + 1).padStart(2, '0') + ' / 0' + SECTIONS.length; },
+      onEnterBack: () => { name.textContent = s.name; cur.textContent = String(i + 1).padStart(2, '0') + ' / 0' + SECTIONS.length; }
+    });
+  });
+})();
+
+/* ---------- 滚动进度 ---------- */
+const progEl = document.getElementById('progress');
+function onScroll(){
+  const h = document.documentElement;
+  const p = h.scrollTop / (h.scrollHeight - h.clientHeight);
+  progEl.textContent = Math.round(p * 100) + '%';
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+/* ---------- 跑马灯复制 ---------- */
+(function(){
+  const track = document.getElementById('mt');
+  track.innerHTML += track.innerHTML;
+})();
+
+/* ---------- 联系方式：点击复制 ---------- */
+(function(){
+  document.querySelectorAll('.c-row').forEach(row => {
+    row.addEventListener('click', () => {
+      const text = row.dataset.copy;
+      const hint = row.querySelector('.hint');
+      const fallback = () => {
+        if (!hint) return;
+        hint.textContent = '已复制';
+        hint.classList.add('copied');
+        setTimeout(() => { hint.textContent = '点击复制'; hint.classList.remove('copied'); }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(fallback).catch(fallback);
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch(e) {}
+        ta.remove();
+        fallback();
+      }
+    });
+  });
+})();
+
+/* ---------- 光标跟随器（palominoprod 同款：混色圆点 + 悬停放大显示箭头） ---------- */
+(function(){
+  if (reduceMotion || isTouch) return;
+  const f = document.getElementById('cursorFollower');
+  if (!f) return;
+  let x = innerWidth / 2, y = innerHeight / 2, tx = x, ty = y;
+  window.addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; }, { passive: true });
+  gsap.ticker.add(() => {
+    x += (tx - x) * .16;
+    y += (ty - y) * .16;
+    f.style.left = x + 'px';
+    f.style.top = y + 'px';
+  });
+  document.querySelectorAll('a, .row, .p-item, .foot-cta a').forEach(el => {
+    el.addEventListener('mouseenter', () => f.classList.add('on'));
+    el.addEventListener('mouseleave', () => f.classList.remove('on'));
+  });
+})();
+</script>
+</body>
+</html>
