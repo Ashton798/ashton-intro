@@ -2,9 +2,21 @@
 <html lang="zh-CN" class="dark">
 <head>
 <meta charset="UTF-8" />
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=loops&utm_source=ai-legible&utm_medium=owned&utm_content=comment&utm_id=f11ce521-b834-43a4-8c49-391bbc960de1
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>ASHTON YANG | 杨帅先</title>
-<meta name="description" content="Ashton Yang（杨帅先）| 泉州师范学院 | 篮球 / 价值投资 / AI / 机器人" />
+<link rel="manifest" href="manifest.webmanifest" />
+<meta name="theme-color" content="#050505" />
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="img/icon-192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="img/icon-512.png" />
+<meta name="description" content="Ashton Yang（杨帅先）| AI / 创业 / 投资 / 体育 / 科技 | 个人主页与社群导航" />
+<meta property="og:type" content="profile" />
+<meta property="og:title" content="ASHTON YANG | AI / 创业 / 投资 / 体育" />
+<meta property="og:description" content="喜欢折腾新东西，也喜欢认识有想法的人。" />
+<meta property="og:image" content="./img/og-cover.png" />
 <meta name="theme-color" content="#050505" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -254,6 +266,129 @@ footer{border-top:1px solid var(--hair);padding:clamp(90px,14vh,170px) 0 clamp(4
   [data-reveal]{opacity:1}
   #preloader{display:none}
 }
+
+/* ---------- 新增：最近在做 ---------- */
+#now{padding-top:clamp(90px,13vh,150px);background:#080808}
+.now-intro{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;margin-top:clamp(32px,5vh,58px);padding-bottom:20px;border-bottom:1px solid var(--hair)}
+.now-intro p{max-width:48ch;color:var(--gray);font-size:clamp(14px,1.3vw,17px);line-height:1.8}
+.now-intro .micro{font-size:11px;letter-spacing:.2em;color:var(--rust);white-space:nowrap;text-transform:uppercase}
+.now-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--hair);border:1px solid var(--hair);margin-top:28px}
+.now-card{position:relative;min-height:230px;padding:28px;background:#080808;overflow:hidden;transition:background .35s,transform .35s}
+.now-card::before{content:"";position:absolute;right:-40px;top:-50px;width:150px;height:150px;border:1px solid rgba(255,99,61,.35);border-radius:50%;opacity:.4;transition:transform .5s,opacity .35s}
+.now-card:hover{background:#101010}
+.now-card:hover::before{transform:scale(1.3);opacity:.9}
+.now-card .num{font-size:11px;letter-spacing:.2em;color:var(--rust)}
+.now-card h3{margin-top:38px;font-size:clamp(22px,2.4vw,34px);font-weight:800;line-height:1;letter-spacing:-.02em}
+.now-card p{max-width:36ch;margin-top:16px;color:var(--gray);font-size:14px;line-height:1.8}
+.now-card .tagline{position:absolute;right:24px;bottom:24px;color:var(--limestone);font-size:10px;letter-spacing:.16em;text-transform:uppercase}
+
+/* ---------- 新增：个人兴趣方向 ---------- */
+.interest-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--hair);border:1px solid var(--hair);margin-top:28px}
+.interest-tile{min-height:190px;padding:24px;background:#080808;transition:background .3s}
+.interest-tile:hover{background:#111}
+.interest-tile .ico{font-size:25px;color:var(--rust)}
+.interest-tile h3{margin-top:38px;font-size:19px;font-weight:700}
+.interest-tile p{margin-top:12px;color:var(--gray);font-size:12px;line-height:1.8}
+.interest-tile small{display:block;margin-top:18px;color:var(--limestone);font-size:10px;letter-spacing:.15em;text-transform:uppercase}
+
+/* ---------- 新增：社群入口 ---------- */
+#communities{padding-top:clamp(100px,15vh,180px);background:#0b0b0b}
+.community-intro{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-top:28px}
+.community-intro p{max-width:42ch;color:var(--gray);font-size:15px;line-height:1.8}
+.community-intro .badge{padding:7px 11px;border:1px solid rgba(255,99,61,.5);color:var(--rust);font-size:10px;letter-spacing:.15em;white-space:nowrap}
+.community-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:36px}
+.community-card{position:relative;padding:28px;border:1px solid var(--hair);background:#0b0b0b;min-height:248px;display:flex;flex-direction:column;overflow:hidden;transition:border-color .3s,transform .3s,background .3s}
+.community-card::after{content:"";position:absolute;right:-70px;bottom:-90px;width:220px;height:220px;border:1px solid rgba(255,99,61,.22);border-radius:50%;pointer-events:none}
+.community-card:hover{border-color:rgba(255,99,61,.7);background:#101010;transform:translateY(-3px)}
+.community-card .c-top{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
+.community-card .c-icon{font-size:28px;line-height:1}
+.community-card .c-note{font-size:10px;letter-spacing:.14em;color:var(--rust);text-transform:uppercase;text-align:right}
+.community-card h3{margin-top:28px;font-size:clamp(21px,2.2vw,30px);font-weight:800;letter-spacing:-.02em}
+.community-card p{max-width:38ch;margin-top:12px;color:var(--gray);font-size:13.5px;line-height:1.8}
+.join-btn{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;width:100%;margin-top:auto;padding:13px 0 0;border:0;border-top:1px solid var(--hair);background:transparent;color:var(--fg);font-size:12px;letter-spacing:.14em;text-align:left;cursor:pointer;transition:color .25s}
+.join-btn span:last-child{font-size:20px;transition:transform .25s}
+.join-btn:hover{color:var(--rust)}
+.join-btn:hover span:last-child{transform:translateX(5px)}
+
+/* ---------- 我的星球：在旧站 DNA 上加入知识星球绿 ---------- */
+.planet-card{
+  display:grid;
+  grid-template-columns:minmax(0,1.2fr) minmax(230px,.8fr);
+  gap:28px;
+  align-items:center;
+  margin-top:16px;
+  padding:18px;
+  border:1px solid var(--hair);
+  background:#0b0b0b;
+  transition:border-color .3s,transform .3s,background .3s;
+}
+.planet-card:hover{border-color:rgba(33,181,155,.8);background:#101313;transform:translateY(-3px)}
+.planet-copy{min-width:0;padding:10px}
+.planet-kicker{color:#21b59b;font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.planet-card h3{margin-top:24px;font-size:clamp(26px,3vw,42px);font-weight:900;line-height:1;letter-spacing:-.03em}
+.planet-card h3 em{font-style:normal;color:#8bd8c7;font-size:.58em;font-weight:500;letter-spacing:.04em;margin-left:10px}
+.planet-card p{max-width:42ch;margin-top:16px;color:var(--gray);font-size:14px;line-height:1.8}
+.planet-features{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 18px;margin-top:22px;list-style:none}
+.planet-features li{position:relative;padding-left:16px;color:var(--limestone);font-size:12px;line-height:1.65}
+.planet-features li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;border-radius:50%;background:#21b59b;box-shadow:0 0 0 3px rgba(33,181,155,.12)}
+.planet-features b{display:block;color:var(--fg);font-size:13px;font-weight:600}
+.planet-features span{display:block;color:var(--gray);font-size:11px}
+.planet-link{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:28px;padding:13px 0;border-top:1px solid rgba(33,181,155,.35);color:var(--fg);text-decoration:none;font-size:12px;letter-spacing:.14em;transition:color .25s,border-color .25s}
+.planet-link span:last-child{font-size:20px;transition:transform .25s}
+.planet-link:hover{border-color:#21b59b;color:#21b59b}
+.planet-link:hover span:last-child{transform:translateX(5px)}
+.planet-qr-wrap{padding:10px;background:#f2f2ee}
+.planet-qr{display:block;width:100%;height:auto;object-fit:contain;background:#f2f2ee}
+.planet-qr-label{margin-top:8px;color:#575752;font-size:11px;letter-spacing:.08em;text-align:center}
+
+/* ---------- 社群 Modal：保持旧站黑·米白·锈橙 DNA ---------- */
+.join-modal{position:fixed;inset:0;z-index:500;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,.76);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.join-modal.open{display:flex}
+.join-dialog{position:relative;width:min(520px,100%);max-height:calc(100svh - 40px);overflow:auto;padding:34px;background:#101010;border:1px solid rgba(255,255,255,.2);box-shadow:0 24px 90px rgba(0,0,0,.45);animation:modalIn .35s cubic-bezier(.16,1,.3,1)}
+@keyframes modalIn{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
+.join-close{position:absolute;right:18px;top:16px;width:32px;height:32px;border:1px solid var(--hair);color:var(--gray);font-size:20px;line-height:1;background:transparent;cursor:pointer}
+.join-close:hover{color:var(--rust);border-color:var(--rust)}
+.join-dialog .modal-kicker{color:var(--rust);font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.join-dialog h2{margin-top:14px;font-size:clamp(26px,4vw,40px);line-height:1;letter-spacing:-.03em}
+.join-dialog h2 em{font-style:normal;color:var(--limestone)}
+.join-dialog .modal-copy{margin-top:12px;color:var(--gray);font-size:14px;line-height:1.8}
+.join-note{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:20px;padding:14px 0;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);font-size:12px;color:var(--gray)}
+.join-note strong{color:var(--rust);font-size:16px;letter-spacing:.08em}
+.qr-box{display:flex;align-items:center;gap:20px;margin-top:22px;padding:14px;background:#f2f2ee;color:#050505}
+.qr-box img{width:240px;height:240px;object-fit:cover;object-position:center 65%;background:#fff;flex:none}
+.qr-box img.social-qr{height:300px;object-fit:contain;object-position:center}
+.qr-copy{font-size:12px;line-height:1.8;color:#575752}
+.qr-copy b{display:block;color:#050505;font-size:15px;margin-bottom:6px}
+.modal-wechat{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:14px;color:var(--gray);font-size:12px}
+.modal-wechat strong{color:var(--fg);font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:14px}
+.modal-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+.modal-actions button{height:44px;border:1px solid var(--hair);background:transparent;color:var(--fg);font-size:12px;letter-spacing:.1em;cursor:pointer}
+.modal-actions button:first-child{background:var(--rust);border-color:var(--rust);color:#050505;font-weight:700}
+.modal-actions button:hover{border-color:var(--rust);color:var(--rust)}
+.modal-actions button:first-child:hover{color:#050505;filter:brightness(1.08)}
+.modal-after{margin-top:16px;color:var(--gray);font-size:11px;line-height:1.7;text-align:center}
+#joinToast{position:fixed;left:50%;bottom:30px;z-index:600;transform:translateX(-50%) translateY(16px);opacity:0;pointer-events:none;padding:11px 18px;background:var(--fg);color:#050505;font-size:12px;letter-spacing:.04em;transition:opacity .25s,transform .25s}
+#joinToast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+@media (max-width:960px){
+  .now-grid,.community-grid{grid-template-columns:1fr}
+  .interest-strip{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .community-intro,.now-intro{align-items:flex-start;flex-direction:column}
+}
+@media (max-width:560px){
+  .now-card,.community-card{min-height:220px;padding:22px}
+  .interest-strip{grid-template-columns:1fr}
+  .interest-tile{min-height:150px}
+  .interest-tile h3{margin-top:22px}
+  .qr-box{align-items:flex-start;flex-direction:column}
+  .qr-box img{width:240px;height:240px}
+  .join-dialog{padding:26px 20px}
+  .planet-card{grid-template-columns:1fr;gap:18px;padding:14px}
+  .planet-copy{padding:8px 6px 0}
+  .planet-card h3{margin-top:18px}
+  .planet-features{grid-template-columns:1fr;gap:9px;margin-top:20px}
+  .planet-link{margin-top:22px}
+}
 </style>
 </head>
 <body>
@@ -268,7 +403,7 @@ footer{border-top:1px solid var(--hair);padding:clamp(90px,14vh,170px) 0 clamp(4
   <div class="pre-bar"><i id="preBar"></i></div>
 </div>
 
-<div class="pill"><b id="spName">HERO</b><span id="pgCur">01 / 06</span></div>
+<div class="pill"><b id="spName">HERO</b><span id="pgCur">01 / 08</span></div>
 <div id="progress">0%</div>
 
 <!-- 光标跟随器（palominoprod 同款） -->
@@ -285,6 +420,9 @@ footer{border-top:1px solid var(--hair);padding:clamp(90px,14vh,170px) 0 clamp(4
   <div class="links">
     <a href="#about"><u>关于</u></a>
     <a href="#interests"><u>热爱</u></a>
+    <a href="#now"><u>在做</u></a>
+    <a href="#communities"><u>社群</u></a>
+    <a href="#planet"><u>星球</u></a>
     <a href="#ny"><u>纽约</u></a>
     <a href="#photos"><u>照片</u></a>
     <a href="#contact"><u>联系</u></a>
@@ -394,6 +532,114 @@ footer{border-top:1px solid var(--hair);padding:clamp(90px,14vh,170px) 0 clamp(4
     </div>
   </section>
 
+  <!-- 最近在做：新增内容，保留原站的叙事与黑底编排 -->
+  <section id="now">
+    <div class="container">
+      <h2 class="sec-head" data-reveal>在做 <em>NOW</em></h2>
+      <div class="now-intro" data-reveal>
+        <p>喜欢把感兴趣的东西真正做出来。现在主要在 AI、体育科技、产品和长期投资之间持续试错。</p>
+        <span class="micro">LEARN · BUILD · SHARE</span>
+      </div>
+      <div class="now-grid">
+        <article class="now-card" data-reveal>
+          <span class="num">01 / SPORT × AI</span>
+          <h3>体育 × AI</h3>
+          <p>尝试用 AI 做体育动作识别、实时人体关键点分析、3D 人体展示和训练反馈。</p>
+          <span class="tagline">Motion / Vision</span>
+        </article>
+        <article class="now-card" data-reveal>
+          <span class="num">02 / AI PRODUCT</span>
+          <h3>AI 产品</h3>
+          <p>使用 Codex 等 AI Coding 工具做网站、Demo 和各种自己的想法，一个人也可以快速验证产品。</p>
+          <span class="tagline">Ship Fast</span>
+        </article>
+        <article class="now-card" data-reveal>
+          <span class="num">03 / SPORTS DATA</span>
+          <h3>AI × 中高考体育</h3>
+          <p>尝试通过 AI 分析百米、三级跳、800 米、铅球等体育项目，让训练反馈更具体。</p>
+          <span class="tagline">Measure Better</span>
+        </article>
+        <article class="now-card" data-reveal>
+          <span class="num">04 / BUSINESS</span>
+          <h3>创业 &amp; 商业</h3>
+          <p>持续研究互联网产品、个人 IP、知识付费、出海和新的商业机会。</p>
+          <span class="tagline">Find Leverage</span>
+        </article>
+        <article class="now-card" data-reveal>
+          <span class="num">05 / VALUE</span>
+          <h3>投资</h3>
+          <p>学习价值投资，关注公司、商业模式、财报和长期投资，用时间换确定性。</p>
+          <span class="tagline">Think Long Term</span>
+        </article>
+      </div>
+
+      <div class="interest-strip" data-reveal>
+        <article class="interest-tile">
+          <div class="ico">✦</div><h3>AI &amp; 科技</h3>
+          <p>AI Coding · Agent · 开源项目 · 具身智能 · AI × 体育</p><small>BUILD WITH MACHINES</small>
+        </article>
+        <article class="interest-tile">
+          <div class="ico">↗</div><h3>创业 &amp; 商业</h3>
+          <p>互联网产品 · 个人 IP · 知识付费 · 出海 · 外贸</p><small>CREATE NEW VALUE</small>
+        </article>
+        <article class="interest-tile">
+          <div class="ico">∿</div><h3>投资</h3>
+          <p>价值投资 · 公司研究 · 商业模式 · 财报 · 美股港股</p><small>COMPOUND OVER TIME</small>
+        </article>
+        <article class="interest-tile">
+          <div class="ico">◒</div><h3>体育</h3>
+          <p>武术 · 健身 · 篮球 · 短跑 · 体育科技</p><small>STAY IN MOTION</small>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 我的社群：新增内容 -->
+  <section id="communities">
+    <div class="container">
+      <h2 class="sec-head" data-reveal>社群 <em>COMMUNITIES</em></h2>
+      <div class="community-intro" data-reveal>
+        <p>目前只开放两个群聊。扫码加入你感兴趣的群，二维码有效期以图片提示为准。</p>
+        <span class="badge">02 GROUPS ONLY</span>
+      </div>
+      <div class="community-grid">
+        <article class="community-card" data-community="泉师 wowland" data-note="泉师" data-qr="img/quanshi-wowland-qr.jpg" data-qr-caption="泉师 wowland 群二维码">
+          <div class="c-top"><span class="c-icon">◒</span><span class="c-note">GROUP / 泉师</span></div>
+          <h3>泉师 wowland</h3>
+          <p>泉师同学交流、校园生活和有趣想法的分享空间。</p>
+          <button class="join-btn" type="button"><span>扫码加入 / JOIN</span><span>↗</span></button>
+        </article>
+        <article class="community-card" data-community="大学生库库逆袭群" data-note="大学生" data-qr="img/university-reversal-qr.jpg" data-qr-caption="大学生库库逆袭群二维码">
+          <div class="c-top"><span class="c-icon">↗</span><span class="c-note">GROUP / 大学生</span></div>
+          <h3>大学生库库逆袭群</h3>
+          <p>大学生成长、行动和资源交流，和一群认真做事的人一起进步。</p>
+          <button class="join-btn" type="button"><span>扫码加入 / JOIN</span><span>↗</span></button>
+        </article>
+      </div>
+      <article class="planet-card" id="planet" data-reveal>
+        <div class="planet-copy">
+          <span class="planet-kicker">KNOWLEDGE PLANET</span>
+          <h3>我的星球 <em>知识星球</em></h3>
+          <p>去 New York 的船，和一群认真做事的人一起成长。这里分享我正在实践、分析和复盘的内容，帮你少走一点弯路。</p>
+          <ul class="planet-features" aria-label="知识星球内容">
+            <li><b>AI 实战方法</b><span>真实工作流、工具和落地经验</span></li>
+            <li><b>投资实盘分析</b><span>公司、行业与市场的持续思考</span></li>
+            <li><b>读书复盘感悟</b><span>带你快速读完一本书，提炼可用观点</span></li>
+            <li><b>提问与复盘打卡</b><span>可以直接提问，我会及时回复</span></li>
+          </ul>
+          <a class="planet-link" href="https://t.zsxq.com/ccQAO" target="_blank" rel="noopener noreferrer">
+            <span>进入我的星球 / ENTER</span>
+            <span>↗</span>
+          </a>
+        </div>
+        <a class="planet-qr-wrap" href="https://t.zsxq.com/ccQAO" target="_blank" rel="noopener noreferrer" aria-label="打开知识星球">
+          <img class="planet-qr" src="img/knowledge-planet-qr.jpg" alt="我的星球知识星球二维码" />
+          <div class="planet-qr-label">扫码或点击图片进入</div>
+        </a>
+      </article>
+    </div>
+  </section>
+
   <!-- 纽约 -->
   <section id="ny">
     <div class="container">
@@ -455,9 +701,13 @@ footer{border-top:1px solid var(--hair);padding:clamp(90px,14vh,170px) 0 clamp(4
       <h2 class="sec-head" data-reveal>联系 <em>CONTACT</em></h2>
       <div class="foot-cta" data-reveal>
         想和我聊聊<br/>
-        篮球、投资或 AI？
+        篮球、投资、AI 或抖音内容？
       </div>
       <div class="contact-list" data-reveal>
+        <div class="c-row qr-contact" data-kind="social" data-community="抖音 @Ashton" data-note="抖音号 90991218745" data-qr="img/douyin-ashton-qr.jpg" data-qr-caption="抖音 @Ashton 二维码">
+          <span class="ck">抖音 DOUYIN</span>
+          <span class="cv">@Ashton <small class="hint">点击查看二维码 ↗</small></span>
+        </div>
         <div class="c-row" data-copy="Ashton-798">
           <span class="ck">微信 WECHAT</span>
           <span class="cv">Ashton-798 <small class="hint">点击复制</small></span>
@@ -480,6 +730,27 @@ footer{border-top:1px solid var(--hair);padding:clamp(90px,14vh,170px) 0 clamp(4
   </footer>
 
 </main>
+
+<!-- 社群二维码弹窗：只展示当前保留的两个群聊 -->
+<div class="join-modal" id="joinModal" aria-hidden="true">
+  <div class="join-dialog" role="dialog" aria-modal="true" aria-labelledby="joinTitle">
+    <button class="join-close" id="joinClose" type="button" aria-label="关闭">×</button>
+    <div class="modal-kicker" id="joinKicker">COMMUNITY ACCESS</div>
+    <h2 id="joinTitle"><span id="joinAction">加入</span> <em id="joinName">泉师 wowland</em></h2>
+    <p class="modal-copy" id="joinCopy">使用微信扫一扫加入群聊，也可以长按二维码识别。二维码有效期以图片下方提示为准。</p>
+    <div class="join-note"><span id="joinNoteLabel">当前群聊</span><strong id="joinNote">泉师 wowland</strong></div>
+    <div class="qr-box">
+      <img id="joinQr" src="img/quanshi-wowland-qr.jpg" alt="泉师 wowland 群二维码" />
+      <div class="qr-copy"><b id="qrCaption">泉师 wowland 群二维码</b><span id="qrDescription">请在二维码有效期内扫码加入。<br/>手机端可以长按图片保存。</span></div>
+    </div>
+    <div class="modal-wechat"><span id="joinWechatLabel">群聊名称</span><strong id="joinWechat">泉师 wowland</strong></div>
+    <div class="modal-actions">
+      <button id="saveQr" type="button">保存二维码</button>
+    </div>
+    <p class="modal-after" id="joinAfter">如果二维码过期，请替换对应群聊图片后重新部署。</p>
+  </div>
+</div>
+<div id="joinToast" role="status" aria-live="polite"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -939,7 +1210,8 @@ gsap.from('.stat', {
   const cur = document.getElementById('pgCur');
   const SECTIONS = [
     { id: 'hero', name: 'HERO' }, { id: 'about', name: 'ABOUT' },
-    { id: 'interests', name: 'INTERESTS' }, { id: 'ny', name: 'NYC' },
+    { id: 'interests', name: 'INTERESTS' }, { id: 'now', name: 'NOW' },
+    { id: 'communities', name: 'COMMUNITIES' }, { id: 'ny', name: 'NYC' },
     { id: 'photos', name: 'PHOTOS' }, { id: 'contact', name: 'CONTACT' }
   ];
   SECTIONS.forEach((s, i) => {
@@ -969,7 +1241,7 @@ onScroll();
 
 /* ---------- 联系方式：点击复制 ---------- */
 (function(){
-  document.querySelectorAll('.c-row').forEach(row => {
+  document.querySelectorAll('.c-row:not(.qr-contact)').forEach(row => {
     row.addEventListener('click', () => {
       const text = row.dataset.copy;
       const hint = row.querySelector('.hint');
@@ -1007,11 +1279,98 @@ onScroll();
     f.style.left = x + 'px';
     f.style.top = y + 'px';
   });
-  document.querySelectorAll('a, .row, .p-item, .foot-cta a').forEach(el => {
+  document.querySelectorAll('a, .row, .p-item, .foot-cta a, .community-card, .join-btn').forEach(el => {
     el.addEventListener('mouseenter', () => f.classList.add('on'));
     el.addEventListener('mouseleave', () => f.classList.remove('on'));
+  });
+})();
+
+/* ---------- 新增：社群弹窗交互 ---------- */
+(function(){
+  const modal = document.getElementById('joinModal');
+  const dialog = modal?.querySelector('.join-dialog');
+  const close = document.getElementById('joinClose');
+  const kicker = document.getElementById('joinKicker');
+  const action = document.getElementById('joinAction');
+  const name = document.getElementById('joinName');
+  const note = document.getElementById('joinNote');
+  const noteLabel = document.getElementById('joinNoteLabel');
+  const wechat = document.getElementById('joinWechat');
+  const wechatLabel = document.getElementById('joinWechatLabel');
+  const copy = document.getElementById('joinCopy');
+  const after = document.getElementById('joinAfter');
+  const qr = document.getElementById('joinQr');
+  const qrCaption = document.getElementById('qrCaption');
+  const qrDescription = document.getElementById('qrDescription');
+  const toast = document.getElementById('joinToast');
+  let lastTrigger = null;
+  let toastTimer = null;
+
+  if (!modal || !dialog || !name || !note || !wechat || !qr) return;
+
+  const showToast = (text) => {
+    if (!toast) return;
+    toast.textContent = text;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 1800);
+  };
+
+  const open = (card) => {
+    lastTrigger = card.querySelector('.join-btn') || card;
+    const isSocial = card.dataset.kind === 'social';
+    const groupName = card.dataset.community || '社群';
+    const qrSrc = card.dataset.qr;
+    if (kicker) kicker.textContent = isSocial ? 'SOCIAL PROFILE' : 'COMMUNITY ACCESS';
+    if (action) action.textContent = isSocial ? '关注' : '加入';
+    name.textContent = groupName;
+    if (noteLabel) noteLabel.textContent = isSocial ? '账号信息' : '当前群聊';
+    note.textContent = card.dataset.note || groupName;
+    if (wechatLabel) wechatLabel.textContent = isSocial ? '抖音号' : '群聊名称';
+    wechat.textContent = isSocial ? '90991218745' : groupName;
+    if (copy) copy.innerHTML = isSocial
+      ? '保存二维码到相册，打开抖音后搜索账号或扫一扫关注。<br/>二维码图片中的操作说明可以直接照着做。'
+      : '使用微信扫一扫加入群聊，也可以长按二维码识别。二维码有效期以图片下方提示为准。';
+    if (after) after.textContent = isSocial ? '欢迎在抖音继续关注 Ashton 的内容。' : '如果二维码过期，请替换对应群聊图片后重新部署。';
+    qr.classList.toggle('social-qr', isSocial);
+    qr.src = qrSrc;
+    qr.alt = `${groupName}二维码`;
+    if (qrCaption) qrCaption.textContent = card.dataset.qrCaption || `${groupName}二维码`;
+    if (qrDescription) qrDescription.innerHTML = isSocial
+      ? '抖音号：90991218745<br/>手机端可以长按图片保存。'
+      : '请在二维码有效期内扫码加入。<br/>手机端可以长按图片保存。';
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    close?.focus();
+  };
+
+  const shut = () => {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    lastTrigger?.focus();
+  };
+
+  document.querySelectorAll('.community-card, .qr-contact').forEach(card => {
+    const trigger = card.querySelector('.join-btn') || card;
+    trigger.addEventListener('click', () => open(card));
+  });
+  close?.addEventListener('click', shut);
+  modal.addEventListener('click', e => { if (e.target === modal) shut(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) shut(); });
+
+  document.getElementById('saveQr')?.addEventListener('click', () => {
+    const a = document.createElement('a');
+    a.href = qr.src;
+    const safeName = (name.textContent || '群聊').replace(/[\\/:*?"<>|]+/g, '-');
+    a.download = `${safeName}-二维码.${qr.src.endsWith('.jpg') ? 'jpg' : 'svg'}`;
+    a.target = '_blank';
+    a.click();
+    showToast('已发起保存；微信内请长按二维码保存');
   });
 })();
 </script>
 </body>
 </html>
+<script async src="/.netlify/scripts/hud?variant=public" data-nf-variant="public" data-netlify-site-id="f11ce521-b834-43a4-8c49-391bbc960de1" data-app-host="app.netlify.com"></script>
